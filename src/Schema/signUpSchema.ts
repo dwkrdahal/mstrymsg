@@ -1,10 +1,12 @@
 import {z} from 'zod'
 
+const usernameRegex = /^[a-zA-Z0-9_]+$/;
+
 export const usernameValidation = z
   .string()
   .min(2, {message: "username must be atleast 2 characters"})
   .max(20, {message: "username must not exceed 20 characters"})
-  .regex(/^[a-zA-Z0-9_]+$/, {message: "username mustnot contain special characters"})
+  .regex(usernameRegex, {message: "username mustnot contain special characters"})
 
 export const emailValidation = z
   .string()
